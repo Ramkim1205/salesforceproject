@@ -1,0 +1,27 @@
+<template>
+    <div class="hero-container">
+        <!-- 비디오가 로드되지 않는 경우를 대비해 iframe 백업 추가 -->
+        <video autoplay loop muted playsinline preload="auto" class="background-video" onerror={handleVideoError}>
+            <source src={computedVideoUrl} type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <template lwc:if={computedOverlay}>
+            <div class="overlay" style={computedOverlayStyle}></div>
+        </template>
+
+        <div class={computedHeroDetailsClass}>
+            <h1>{title}</h1>
+            <p>{slogan}</p>
+            <button onclick={handleButtonClick}>{buttonText}</button>
+        </div>
+
+        <!-- CSP 문제 해결을 위한 iframe 설정 -->
+        <iframe 
+            class="backup-video-iframe" 
+            src={computedVideoUrl} 
+            allow="autoplay" 
+            sandbox="allow-same-origin allow-scripts allow-popups">
+        </iframe>
+    </div>
+</template>
