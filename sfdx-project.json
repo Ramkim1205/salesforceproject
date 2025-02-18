@@ -5,7 +5,11 @@
       "default": true
     }
   ],
+<<<<<<< HEAD
   "name": "Team5forReal",
+=======
+  "name": "Dreamorder",
+>>>>>>> 27f776e (Save local changes before merge)
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "62.0"
