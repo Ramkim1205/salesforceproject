@@ -1,0 +1,53 @@
+<template>
+    <!-- Particles 배경 -->
+    <div class="particles-js"></div>
+
+    <!-- 다단계 폼 컨테이너 (AOS 애니메이션 적용) -->
+    <div class="container" data-aos="fade-up">
+        <!-- Step 1: 문의 유형 선택 -->
+        <template if:true={isStep1}>
+            <h2 class="title">문의 유형 선택</h2>
+            <div class="button-group">
+                <button class="button" data-type="AS" onclick={handleSelectType}>수리</button>
+                <button class="button" data-type="Installation" onclick={handleSelectType}>추가설치</button>
+                <button class="button" data-type="Contract" onclick={handleSelectType}>계약문의</button>
+                <button class="button" data-type="Other" onclick={handleSelectType}>기타문의</button>
+            </div>
+        </template>
+
+        <!-- Step 2: 방문 희망 날짜 선택 (수리 또는 추가설치인 경우) -->
+        <template if:true={isStep2}>
+            <h2 class="title">방문 희망 날짜 선택</h2>
+            <div class="input-field">
+                <label for="scheduledDate">방문 희망 날짜</label>
+                <input type="datetime-local" id="scheduledDate" value={userData.scheduledDate} onchange={handleScheduledDateChange}/>
+            </div>
+            <button class="button" onclick={nextStep}>다음</button>
+        </template>
+
+        <!-- Step 3: 이메일 입력 및 확인 -->
+        <template if:true={isStep3}>
+            <h2 class="title">이메일 입력</h2>
+            <div class="input-field">
+                <label for="emailInput">Email</label>
+                <input type="text" id="emailInput" placeholder="이메일을 입력하세요" value={userData.email} onchange={handleEmailChange}/>
+            </div>
+            <button class="button" onclick={handleCheckEmail}>이메일 확인</button>
+        </template>
+
+        <!-- Step 4: 추가 설명 입력 및 최종 제출 -->
+        <template if:true={isStep4}>
+            <h2 class="title">추가 설명 입력</h2>
+            <div class="input-field">
+                <label for="descriptionInput">Description</label>
+                <textarea id="descriptionInput" placeholder="추가 설명을 입력하세요" onchange={handleDescriptionChange}>{userData.description}</textarea>
+            </div>
+            <button class="submitbutton" onclick={handleSubmit}>제출</button>
+        </template>
+
+        <!-- 결과 메시지 표시 -->
+        <template if:true={resultMessage}>
+            <p class="result">{resultMessage}</p>
+        </template>
+    </div>
+</template>

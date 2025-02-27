@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="주소 검색" icon-name="utility:search" class="lead-search-card">
+        <!-- 검색 입력 및 버튼 -->
+        <div class="slds-p-around_medium search-container">
+            <lightning-input 
+                label="매장 이름" 
+                value={searchKey} 
+                onchange={handleChange}
+                class="slds-m-bottom_small">
+            </lightning-input>
+            <lightning-button 
+                label="검색" 
+                onclick={handleSearch} 
+                variant="brand"
+                class="search-button">
+            </lightning-button>
+        </div>
+
+        <!-- 검색 결과 리스트 (카드 형태) -->
+        <template if:true={results}>
+            <div class="slds-p-around_medium results-container">
+                <ul class="results-list">
+                    <template for:each={results} for:item="result" for:index="index">
+                        <li key={result.place_id} 
+                            data-index={index} 
+                            onclick={handleSelect}
+                            class="result-item slds-box slds-box_x-small slds-text-link">
+                            {result.display_name}
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </template>
+
+        <!-- 선택된 주소 및 업데이트 버튼 -->
+        <template if:true={selectedAddress}>
+            <div class="slds-p-around_medium selected-container">
+                <p class="selected-address"><strong>선택된 주소:</strong> {selectedAddress}</p>
+                <lightning-button 
+                    label="주소 입력" 
+                    onclick={handleUpdate} 
+                    variant="brand"
+                    class="update-button slds-m-top_small">
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

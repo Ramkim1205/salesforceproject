@@ -6,11 +6,7 @@ import LEAFLET_ZIP from '@salesforce/resourceUrl/LeafletJS';
 import LATITUDE_FIELD from '@salesforce/schema/Lead.Latitude__c';
 import LONGITUDE_FIELD from '@salesforce/schema/Lead.Longitude__c';
 import ADDRESS_FIELD from '@salesforce/schema/Lead.Address__c';
-<<<<<<< HEAD
-import DISTRICT_FIELD from '@salesforce/schema/Lead.district__c';
-=======
 import DISTRICT_FIELD from '@salesforce/schema/Lead.District__c';
->>>>>>> 27f776e (Save local changes before merge)
 
 export default class LeadLocationMap extends LightningElement {
     @api recordId;

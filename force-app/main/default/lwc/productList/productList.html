@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Products">
+        <div class="product-container">
+            <template for:each={products} for:item="product">
+                <div key={product.Id} 
+                     class="product-item"
+                     data-index={product.index}
+                     draggable="true"
+                     ondragstart={handleDragStart}>
+                    <div class="image-container">
+                        <img src={product.DisplayUrl} alt={product.Name} />
+                    </div>
+                    <div class="product-info">
+                        <p class="product-name">{product.Name}</p>
+                        <p class="product-price">₩{product.Price}</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,27 @@
+<template>
+    <lightning-card if:true={product}>
+        <div class="card">
+            <div class="imgBox">
+                <img src={product.DisplayUrl} alt="Product Image"/>
+            </div>
+            <div class="details">
+                <h3>{product.Name}</h3>
+                <h4>Product Details</h4>
+                <p>{product.Description}</p>
+                <ul class="size">
+                    <li>36</li>
+                    <li>38</li>
+                    <li>40</li>
+                    <li>42</li>
+                    <li>44</li>
+                </ul>
+                <div class="group">
+                    <h2>
+                        <sup>₩</sup>{unitPrice}<small>.00</small>
+                    </h2>
+                    <a href="javascript:void(0);" onclick={handleBuyNow}>Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

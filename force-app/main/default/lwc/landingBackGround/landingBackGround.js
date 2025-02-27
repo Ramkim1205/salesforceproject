@@ -5,7 +5,7 @@ export default class HeroBackground extends LightningElement {
     @api slogan = 'Ride With Power';
     @api buttonText = 'See Electra Bikes';
     @api heroDetailsPosition = 'center';
-    @api overlay = false; // Boolean 속성 기본값은 false
+    @api overlay = false; // 기본값: false
     @api opacity = 5;
     @api resourceUrl = 'https://kr.prd.image.homepage.torder.com/videos/1ae5ff84-2af2-4f07-80a9-866b0796787e.mp4';
 
@@ -43,12 +43,20 @@ export default class HeroBackground extends LightningElement {
     }
 
     handleVideoError(event) {
-        console.error('❌ 비디오 로드 오류:', event);
+        console.error('❌ Video Load Error:', event);
     }
 
     handleButtonClick() {
-        const targetUrl = 'https://team5webtolead.netlify.app/';
-        console.log('🔗 Button Click - Navigating to:', targetUrl);
-        window.open(targetUrl, '_blank'); // 새 창에서 열기
+        // 기존 버튼 동작 (예: 다른 URL로 이동)
+        const targetUrl = 'https://team5webtolead.netlify.app/'; // 필요에 따라 수정
+        console.log('🔗 Existing Button Click - Navigating to:', targetUrl);
+        window.open(targetUrl, '_self');
+    }
+
+    handleNewButtonClick() {
+        // 새 버튼: 배포된 Netlify 사이트로 이동
+        const targetUrl = 'https://dreamorder-dev-ed.develop.my.site.com/s/webtocase';
+        console.log('🔗 New Button Click - Navigating to:', targetUrl);
+        window.open(targetUrl, '_self');
     }
 }

@@ -1,0 +1,16 @@
+<template>
+    <lightning-card>
+        <div class="container">
+            <template for:each={products} for:item="product">
+                <div key={product.Id}
+                     class="slide {product.activeClass}"
+                     data-index={product.index}
+                     onclick={handleSlide}>
+                     <!-- 새로 추가된 이미지 전용 자식 요소 -->
+                     <div class="bg" style={product.backgroundStyle}></div>
+                     <h3>{product.Name}</h3>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

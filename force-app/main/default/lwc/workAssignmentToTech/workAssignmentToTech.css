@@ -1,0 +1,136 @@
+/* 전체 카드 스타일 */
+.card-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* 카드 헤더 */
+.card-header {
+    background-color: #f2f2f2;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 카드 내용 영역: 양쪽 섹션 가로 배치 */
+.card-content {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+/* 섹션 공통 스타일 */
+.section {
+    flex: 1;
+    margin: 0 10px;
+}
+
+/* 섹션 제목 */
+.section-title {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 카드 리스트: 세로로 카드들을 배치 */
+.card-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 개별 카드 아이템 (Work, Technician 모두 포함) */
+.item-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+}
+
+/* 선택되지 않은 카드에 hover 효과 적용 */
+.item-card:not(.selected):hover {
+    transform: scale(1.02);
+    background-color: #f9f9f9;
+    opacity: 0.9;
+}
+
+/* 선택된 카드 */
+.item-card.selected {
+    border-color: #0070d2;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 기본 Work 카드 스타일 */
+.work-card {
+    /* 추가 스타일 필요 시 여기에 설정 */
+}
+
+/* 기본 Technician 카드 스타일 */
+.technician-card {
+    background-color: transparent; /* 가능한 기술자: 기본 투명 */
+}
+
+/* 클릭 불가한 기사 카드 (시간 충돌) - 회색 */
+.unavailable-conflict {
+    background-color: #ccc;
+    pointer-events: none;
+}
+
+/* 클릭 불가한 기사 카드 (근무시간 아님) - 연한 빨강 */
+.unavailable-hours {
+    background-color: #ffcccc;
+    pointer-events: none;
+}
+
+/* 선택된 가능한 기사 카드: 배경 흰색 */
+.technician-available.selected {
+    background-color: #ffffff;
+}
+
+/* 기술자 카드 내부 레이아웃: 이미지 왼쪽, 정보 오른쪽 */
+.tech-card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tech-image-container {
+    margin-right: 10px;
+}
+
+.tech-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.tech-info-container {
+    flex: 1;
+}
+
+/* 데이터 없음 안내 */
+.no-data {
+    color: #888;
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+}
+
+/* 에러 메시지 */
+.error {
+    color: red;
+    padding: 10px;
+    text-align: center;
+}
+
+/* 버튼 컨테이너 */
+.button-container {
+    text-align: center;
+    margin-top: 10px;
+}

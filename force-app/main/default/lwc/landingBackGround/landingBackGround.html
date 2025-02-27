@@ -1,27 +1,24 @@
 <template>
     <div class="hero-container">
-        <!-- 비디오가 로드되지 않는 경우를 대비해 iframe 백업 추가 -->
+        <!-- 배경 동영상 -->
         <video autoplay loop muted playsinline preload="auto" class="background-video" onerror={handleVideoError}>
-            <source src={computedVideoUrl} type="video/mp4">
+            <source src={computedVideoUrl} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
 
-        <template lwc:if={computedOverlay}>
+        <!-- 오버레이 (overlay 속성이 true일 때만 표시) -->
+        <template if:true={computedOverlay}>
             <div class="overlay" style={computedOverlayStyle}></div>
         </template>
 
+        <!-- 텍스트와 버튼 영역 -->
         <div class={computedHeroDetailsClass}>
             <h1>{title}</h1>
             <p>{slogan}</p>
-            <button onclick={handleButtonClick}>{buttonText}</button>
+            <!-- 기존 버튼 -->
+            <button class="button" onclick={handleButtonClick}>{buttonText}</button>
+            <!-- 추가된 버튼: 배포된 사이트로 이동 -->
+            <button class="button" onclick={handleNewButtonClick}>Problem</button>
         </div>
-
-        <!-- CSP 문제 해결을 위한 iframe 설정 -->
-        <iframe 
-            class="backup-video-iframe" 
-            src={computedVideoUrl} 
-            allow="autoplay" 
-            sandbox="allow-same-origin allow-scripts allow-popups">
-        </iframe>
     </div>
 </template>

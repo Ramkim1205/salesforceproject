@@ -1,0 +1,76 @@
+<template>
+    <div class="card-container">
+        <div class="card-header">
+            기사배정대기 작업 목록
+        </div>
+        <div class="card-content">
+            <!-- 왼쪽: Work 리스트 (카드 형태) -->
+            <div class="section work-section">
+                <div class="section-title">Work 리스트</div>
+                <template if:true={works}>
+                    <template if:true={works.length}>
+                        <div class="card-list">
+                            <template for:each={works} for:item="work">
+                                <div key={work.Id}
+                                     data-id={work.Id}
+                                     class={work.className}
+                                     onclick={handleWorkCardClick}>
+                                    <p class="item-title">{work.Name}</p>
+                                    <p>{work.District__c}</p>
+                                    <p>{work.Scheduled_Date__c}</p>
+                                    <p>{work.Status__c}</p>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                    <template if:false={works.length}>
+                        <div class="no-data">데이터가 없습니다.</div>
+                    </template>
+                </template>
+                <template if:true={error}>
+                    <div class="error">{error}</div>
+                </template>
+            </div>
+            <!-- 오른쪽: Technician 리스트 및 배정 버튼 (카드 형태) -->
+            <div class="section technician-section">
+                <div class="section-title">해당 작업에 매칭되는 기사 목록</div>
+                <template if:true={selectedWork}>
+                    <template if:true={technicians}>
+                        <template if:true={technicians.length}>
+                            <div class="card-list">
+                                <template for:each={technicians} for:item="tech">
+                                    <div key={tech.technicianId}
+                                         data-id={tech.technicianId}
+                                         class={tech.className}
+                                         onclick={handleTechnicianCardClick}>
+                                         <div class="tech-card-container">
+                                             <div class="tech-image-container">
+                                                 <template if:true={tech.photoUrl}>
+                                                     <img src={tech.photoUrl} alt="Photo of {tech.Name}" class="tech-photo"/>
+                                                 </template>
+                                             </div>
+                                             <div class="tech-info-container">
+                                                 <p class="item-title">{tech.Name}</p>
+                                                 <p>{tech.Assigned_Districts__c}</p>
+                                                 <p>{tech.availability}</p>
+                                             </div>
+                                         </div>
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="button-container">
+                                <lightning-button label="배정" variant="brand" onclick={handleAssign}></lightning-button>
+                            </div>
+                        </template>
+                        <template if:false={technicians.length}>
+                            <div class="no-data">해당 작업에 매칭되는 기사가 없습니다.</div>
+                        </template>
+                    </template>
+                </template>
+                <template if:false={selectedWork}>
+                    <div class="no-data">작업을 선택하면 기사가 표시됩니다.</div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

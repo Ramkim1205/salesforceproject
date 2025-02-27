@@ -1,0 +1,61 @@
+/* 전체 카드 스타일 */
+.lead-search-card {
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+/* 검색 영역 */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* 검색 버튼: 브랜드 색상과 약간의 그림자 추가 */
+.search-button {
+    align-self: flex-end;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 검색 결과 리스트 스타일 */
+.results-container {
+    margin-top: 1rem;
+}
+
+.results-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result-item {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background-color: #f4f6f9;
+    transition: background-color 0.2s ease;
+}
+
+.result-item:hover {
+    background-color: #e0e5eb;
+}
+
+/* 선택된 주소 영역 */
+.selected-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    background-color: #f9fafb;
+}
+
+.selected-address {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* 업데이트 버튼: 브랜드 색상 적용 */
+.update-button {
+    align-self: flex-end;
+}

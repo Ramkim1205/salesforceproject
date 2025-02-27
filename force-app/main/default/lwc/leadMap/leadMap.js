@@ -12,14 +12,14 @@ import ADDRESS_FIELD from '@salesforce/schema/Lead.Address__c';
 import LATITUDE_FIELD from '@salesforce/schema/Lead.Latitude__c';
 import LONGITUDE_FIELD from '@salesforce/schema/Lead.Longitude__c';
 import CONFIRMED_FIELD from '@salesforce/schema/Lead.TableOrder__c';
-import DISTRICT_FIELD from '@salesforce/schema/Lead.District__c';  // ✅ 구 정보 필드 추가
+import DISTRICT_FIELD from '@salesforce/schema/Lead.District__c';  // 구 정보 필드 추가
 
 export default class LeadMap extends LightningElement {
     @api recordId;
     @track latitude;
     @track longitude;
     @track address = '';
-    @track district = '';  // ✅ 구 정보 저장
+    @track district = '';  // 구 정보 저장
     @track company = '';
     @track isChecked = false;
     map;
@@ -29,32 +29,32 @@ export default class LeadMap extends LightningElement {
     renderedCallback() {
         if (this.map) return;
 
-        // Leaflet 라이브러리 로드
+        // Load Leaflet resources
         Promise.all([
             loadStyle(this, LEAFLET_ZIP + '/leaflet.css'),
             loadScript(this, LEAFLET_ZIP + '/leaflet.js')
         ])
         .then(() => {
-            console.log('✅ Leaflet.js 로드 성공');
+            console.log('✅ Leaflet.js loaded successfully');
             this.initMap();
             this.getUserLocation();
         })
         .catch(error => {
-            console.error('❌ Leaflet.js 로드 실패:', error);
+            console.error('❌ Failed to load Leaflet.js:', error);
             this.dispatchEvent(new ShowToastEvent({
                 title: 'Error',
-                message: '지도 라이브러리를 불러올 수 없습니다.',
+                message: 'Unable to load map library.',
                 variant: 'error'
             }));
         });
     }
 
     initMap() {
-        console.log('✅ 지도 초기화 시작');
+        console.log('✅ Initializing map');
         const mapContainer = this.template.querySelector('.map-container');
 
         if (!mapContainer) {
-            console.error('❌ 지도 컨테이너를 찾을 수 없습니다.');
+            console.error('❌ Map container not found.');
             return;
         }
 
@@ -63,17 +63,23 @@ export default class LeadMap extends LightningElement {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(this.map);
 
-        this.map.on('click', async (event) => {
-            this.latitude = event.latlng.lat;
-            this.longitude = event.latlng.lng;
-            console.log(`📌 지도 클릭됨 - 위도: ${this.latitude}, 경도: ${this.longitude}`);
+        // Use a different parameter name to avoid conflicts
+        this.map.on('click', async (leafletEvent) => {
+            try {
+                const latlng = leafletEvent.latlng;
+                this.latitude = latlng.lat;
+                this.longitude = latlng.lng;
+                console.log(`📌 Map clicked - Latitude: ${this.latitude}, Longitude: ${this.longitude}`);
 
-            if (this.marker) {
-                this.marker.remove();
+                if (this.marker) {
+                    this.marker.remove();
+                }
+
+                this.marker = L.marker([this.latitude, this.longitude]).addTo(this.map);
+                await this.getAddressFromLatLng(this.latitude, this.longitude);
+            } catch (err) {
+                console.error('❌ Error during map click handling:', err);
             }
-
-            this.marker = L.marker([this.latitude, this.longitude]).addTo(this.map);
-            await this.getAddressFromLatLng(this.latitude, this.longitude);
         });
     }
 
@@ -82,7 +88,7 @@ export default class LeadMap extends LightningElement {
             navigator.geolocation.getCurrentPosition((position) => {
                 this.latitude = position.coords.latitude;
                 this.longitude = position.coords.longitude;
-                console.log(`📌 사용자 현재 위치 - 위도: ${this.latitude}, 경도: ${this.longitude}`);
+                console.log(`📌 User location - Latitude: ${this.latitude}, Longitude: ${this.longitude}`);
 
                 if (this.userMarker) {
                     this.userMarker.remove();
@@ -98,37 +104,36 @@ export default class LeadMap extends LightningElement {
 
                 this.map.setView([this.latitude, this.longitude], 14);
             }, (error) => {
-                console.error('❌ 위치 정보를 가져올 수 없습니다:', error);
+                console.error('❌ Failed to retrieve user location:', error);
             });
         } else {
-            console.error('❌ Geolocation을 지원하지 않는 브라우저입니다.');
+            console.error('❌ Geolocation is not supported by this browser.');
         }
     }
 
     async getAddressFromLatLng(lat, lng) {
         try {
-            console.log(`📌 Reverse Geocoding 실행 - 위도: ${lat}, 경도: ${lng}`);
+            console.log(`📌 Reverse Geocoding - Latitude: ${lat}, Longitude: ${lng}`);
             const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
             if (!response.ok) {
-                throw new Error(`❌ HTTP 오류: ${response.status}`);
+                throw new Error(`❌ HTTP Error: ${response.status}`);
             }
 
             const data = await response.json();
             this.address = data.display_name || '주소를 찾을 수 없습니다.';
 
-            // ✅ "구" 정보 추출 (뒤에서 4번째 요소)
+            // Extract district info (4th from last element)
             const addressParts = this.address.split(',').map(part => part.trim());
             if (addressParts.length >= 4) {
-                this.district = addressParts[addressParts.length - 4]; // 뒤에서 4번째 항목 추출
+                this.district = addressParts[addressParts.length - 4];
             } else {
                 this.district = '알 수 없음';
             }
 
-            console.log(`✅ 변환된 주소: ${this.address}`);
-            console.log(`✅ 구 정보: ${this.district}`);
-
+            console.log(`✅ Address: ${this.address}`);
+            console.log(`✅ District: ${this.district}`);
         } catch (error) {
-            console.error('❌ 주소 변환 실패:', error);
+            console.error('❌ Address conversion failed:', error);
             this.address = '주소를 찾을 수 없습니다.';
             this.district = '알 수 없음';
         }
@@ -153,13 +158,13 @@ export default class LeadMap extends LightningElement {
         }
 
         const fields = {};
-        fields[NAME_FIELD.fieldApiName] = 'New Lead';
+        fields[NAME_FIELD.fieldApiName] = this.company + '의 리드';
         fields[COMPANY_FIELD.fieldApiName] = this.company;
         fields[ADDRESS_FIELD.fieldApiName] = this.address;
         fields[LATITUDE_FIELD.fieldApiName] = this.latitude;
         fields[LONGITUDE_FIELD.fieldApiName] = this.longitude;
         fields[CONFIRMED_FIELD.fieldApiName] = this.isChecked;
-        fields[DISTRICT_FIELD.fieldApiName] = this.district;  // ✅ 구 정보 추가
+        fields[DISTRICT_FIELD.fieldApiName] = this.district;
 
         createRecord({ apiName: LEAD_OBJECT.objectApiName, fields })
             .then((lead) => {

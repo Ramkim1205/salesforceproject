@@ -1,0 +1,34 @@
+<template>
+    <div class="container">
+        <!-- 날짜 선택 영역 -->
+        <div class="date-picker">
+            <label for="selectedDate">날짜 선택:</label>
+            <input type="date" id="selectedDate" value={selectedDate} onchange={handleDateChange} />
+        </div>
+        <!-- 지도 영역 (Leaflet 지도) -->
+        <div class="map-container" lwc:dom="manual"></div>
+        <!-- Work 카드 목록 -->
+        <div class="cards-container">
+            <template if:true={works}>
+                <template if:true={works.length}>
+                    <template for:each={works} for:item="work">
+                        <div key={work.Id} class="card">
+                            <div class="card-title">{work.Name}</div>
+                            <div class="card-detail">날짜: {work.formattedDate}</div>
+                            <div class="card-detail">주소: {work.Address__c}</div>
+                            <button class="detail-button" data-id={work.Id} onclick={handleViewDetail}>
+                                상세보기
+                            </button>
+                        </div>
+                    </template>
+                </template>
+                <template if:false={works.length}>
+                    <div class="no-data">선택한 날짜에 할당된 작업이 없습니다.</div>
+                </template>
+            </template>
+        </div>
+        <div class="button-container">
+            <button class="custom-button" onclick={openKakaoMapFirstWork}>카카오 길안내</button>
+        </div>
+    </div>
+</template>

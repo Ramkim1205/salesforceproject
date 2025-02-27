@@ -9,8 +9,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
-            <property name="resourceUrl" type="String" label="Video URL" 
-                      default="https://kr.prd.image.homepage.torder.com/videos/1ae5ff84-2af2-4f07-80a9-866b0796787e.mp4"/>
+            <property name="resourceUrl" type="String" label="Video URL" default="https://kr.prd.image.homepage.torder.com/videos/1ae5ff84-2af2-4f07-80a9-866b0796787e.mp4"/>
             <property name="title" type="String" label="Title" default="Electra Series"/>
             <property name="slogan" type="String" label="Slogan" default="Ride With Power"/>
             <property name="buttonText" type="String" label="Button Text" default="See Electra Bikes"/>

@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: 'Muli', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    background: linear-gradient(60deg, #2aa, #f21);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.container {
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+}
+  
+/* 슬라이드 기본 스타일 (배경 관련 스타일은 .bg에 적용) */
+.slide {
+    height: 70vh;          /* 고정 이미지 높이 */
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    color: #fff;
+    flex-grow: 0.15;       /* 클릭되지 않은 슬라이드의 너비 */
+    position: relative;
+    transition: flex-grow 0.5s ease;
+    overflow: hidden;
+}
+
+/* 배경 이미지를 위한 별도 요소 */
+.slide .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto; /* 기존 설정 그대로 */
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+  
+/* active 슬라이드의 너비 확장 */
+.slide.active {
+    flex-grow: 3;
+}
+  
+/* active 슬라이드에서 hover 시 배경 이미지 (.bg)만 확대 */
+.slide.active:hover .bg {
+    transform: scale(1.1);
+}
+  
+/* 텍스트는 이미지 위에 표시 */
+.slide h3 {
+    position: absolute;
+    font-size: 32px;
+    top: 10px;
+    right: 20px;
+    margin: 0;
+    opacity: 0;
+    color: black;
+    z-index: 1;
+}
+  
+.slide.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+  
+.detail {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}

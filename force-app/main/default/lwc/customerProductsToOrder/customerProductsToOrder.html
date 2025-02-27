@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Customer Order List">
+        <div class="cart-dropzone"
+             ondragover={handleDragOver}
+             ondrop={handleDrop}>
+            <template if:true={cartItems.length}>
+                <template for:each={cartItems} for:item="item">
+                    <div key={item.Id} class="cart-item">
+                        <img src={item.DisplayUrl} alt={item.Name} />
+                        <div class="item-info">
+                            <p>{item.Name}</p>
+                            <p>Price: ₩{item.Price}</p>
+                            <p>
+                                Qty:
+                                <lightning-input type="number" 
+                                                 value={item.quantity} 
+                                                 data-product-id={item.Id} 
+                                                 onchange={handleQuantityChange}>
+                                </lightning-input>
+                            </p>
+                            <button class="delete-btn" data-product-id={item.Id} onclick={handleDelete}>Delete</button>
+                        </div>
+                    </div>
+                </template>
+                <div class="total">
+                    <p>Total: ₩{totalPrice}</p>
+                </div>
+                <lightning-button label="Confirm" onclick={handleConfirm}></lightning-button>
+            </template>
+            <template if:false={cartItems.length}>
+                <p>Drag products here to add to cart.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
