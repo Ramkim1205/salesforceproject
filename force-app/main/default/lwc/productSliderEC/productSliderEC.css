@@ -12,16 +12,24 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+/* Lightning Card의 border와 그림자 제거 */
+.lightning-card {
+    border: none !important;
+    box-shadow: none !important;
+}
   
 .container {
     width: 100%;
     display: flex;
     padding: 0 20px;
+    border: none;
 }
   
 /* 슬라이드 기본 스타일 (배경 관련 스타일은 .bg에 적용) */
 .slide {
     height: 70vh;          /* 고정 이미지 높이 */
+    border: none !important;  /* 테두리 제거 */
     border-radius: 20px;
     margin: 10px;
     cursor: pointer;
@@ -50,7 +58,7 @@ body {
     flex-grow: 3;
 }
   
-/* active 슬라이드에서 hover 시 배경 이미지 (.bg)만 확대 */
+/* active 슬라이드에서 hover 시 배경 이미지 (.bg) 확대 */
 .slide.active:hover .bg {
     transform: scale(1.1);
 }

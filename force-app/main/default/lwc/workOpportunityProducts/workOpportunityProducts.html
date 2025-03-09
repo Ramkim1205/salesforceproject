@@ -1,0 +1,65 @@
+<template>
+    <!-- 상단 Lightning Card 컨테이너 -->
+    <lightning-card 
+        title="설치 할 제품"
+        icon-name="standard:product"
+        class="slds-m-around_medium"
+    >
+        <!-- 에러가 있는 경우 -->
+        <template if:true={error}>
+            <p class="slds-text-color_error slds-p-horizontal_medium">
+                Error: {error.body.message}
+            </p>
+        </template>
+
+        <!-- 제품 목록이 존재하는 경우 -->
+        <template if:true={hasProducts}>
+            <template if:true={lineItems}>
+                <!-- 그리드 레이아웃 (반응형) -->
+                <div class="slds-grid slds-wrap slds-p-around_medium product-grid">
+                    <!-- 각 제품을 반복 렌더링 -->
+                    <template for:each={lineItems} for:item="lineItem">
+                        <div 
+                            key={lineItem.Id} 
+                            class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-p-around_x-small"
+                        >
+                            <!-- SLDS의 Tile 패턴을 활용한 카드 스타일 -->
+                            <article class="slds-tile slds-tile_board slds-p-around_small product-tile">
+                                <div class="slds-media">
+                                    <!-- 이미지 영역 -->
+                                    <div class="slds-media__figure image-container">
+                                        <template if:true={lineItem.PricebookEntry.Product2.DisplayUrl}>
+                                            <img 
+                                                src={lineItem.PricebookEntry.Product2.DisplayUrl}
+                                                alt={lineItem.PricebookEntry.Product2.Name}
+                                            />
+                                        </template>
+                                        <template if:false={lineItem.PricebookEntry.Product2.DisplayUrl}>
+                                            <div class="no-image">No Image</div>
+                                        </template>
+                                    </div>
+                                    <!-- 제품 정보 영역 -->
+                                    <div class="slds-media__body slds-p-horizontal_small">
+                                        <h2 class="slds-tile__title slds-text-heading_small product-name">
+                                            {lineItem.PricebookEntry.Product2.Name}
+                                        </h2>
+                                        <div class="slds-tile__detail">
+                                            <p class="quantity">수량: {lineItem.Quantity}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </template>
+
+        <!-- 제품이 하나도 없을 때 안내 -->
+        <template if:false={hasProducts}>
+            <div class="slds-p-around_medium slds-text-color_weak">
+                설치할 제품 정보가 없습니다.
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -4,36 +4,74 @@
     padding: 20px;
     min-height: 200px;
     background-color: #f9f9f9;
+}
+
+.cart-header {
+    display: flex;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 10px;
     text-align: center;
 }
+
+.cart-header > div {
+    flex: 1;
+}
+
 .cart-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
     border-bottom: 1px solid #ddd;
+    text-align: center;
 }
-.cart-item img {
+
+.cart-item > div {
+    flex: 1;
+}
+
+/* 이미지 컬럼: 고정 너비 */
+.col-image {
+    flex: 0 0 60px;
+}
+
+.col-image img {
     width: 50px;
     height: auto;
     border-radius: 4px;
-    margin-right: 10px;
+    margin: auto;
 }
-.item-info p {
-    margin: 0;
-    font-size: 0.9em;
+
+.no-image {
+    width: 50px;
+    height: 50px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin: auto;
 }
+
 .delete-btn {
     background-color: #ff4d4d;
     color: white;
     border: none;
     padding: 5px 10px;
-    margin-top: 5px;
     border-radius: 4px;
     cursor: pointer;
 }
+
 .total {
     margin-top: 10px;
     font-size: 1.2em;
     font-weight: bold;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.confirm-container {
+    text-align: center;
+    margin-top: 20px;
 }

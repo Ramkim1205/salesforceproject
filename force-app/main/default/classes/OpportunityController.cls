@@ -52,8 +52,21 @@ public with sharing class OpportunityController {
         
         // Opportunity 업데이트: 총합(totalAmount)에 12와 3을 곱한 값을 Amount에 할당
         opp.Amount = totalAmount * 12 * 3;
-        opp.StageName = '협상';
+        opp.StageName = '체험판 요청';
         update opp;
+    }
+    
+    @AuraEnabled(cacheable=true)
+    public static List<OpportunityLineItem> getOpportunityLineItems(Id oppId) {
+        // OpportunityLineItem에서 필요한 필드와 연관된 Product2의 이미지 필드를 함께 조회
+        return [
+            SELECT Id, Quantity,
+                   PricebookEntry.Product2Id,
+                   PricebookEntry.Product2.Name,
+                   PricebookEntry.Product2.DisplayUrl
+            FROM OpportunityLineItem
+            WHERE OpportunityId = :oppId
+        ];
     }
     
     // 내부 클래스: CartItem (wrapper 없이)

@@ -1,4 +1,3 @@
-
 import { LightningElement, api, wire, track } from 'lwc';
 import { getRecord } from 'lightning/uiRecordApi';
 import { CurrentPageReference } from 'lightning/navigation';
@@ -120,5 +119,8 @@ export default class CustomerProductsToOrder extends LightningElement {
             .catch(error => {
                 console.error('Error adding products to opportunity:', error);
             });
+    }
+    get formattedTotalPrice() {
+        return Number(this.totalPrice).toLocaleString();
     }
 }

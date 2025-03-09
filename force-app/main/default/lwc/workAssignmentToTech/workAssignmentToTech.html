@@ -17,14 +17,14 @@
                                      onclick={handleWorkCardClick}>
                                     <p class="item-title">{work.Name}</p>
                                     <p>{work.District__c}</p>
-                                    <p>{work.Scheduled_Date__c}</p>
+                                    <p>{work.formattedDate}</p>
                                     <p>{work.Status__c}</p>
                                 </div>
                             </template>
                         </div>
                     </template>
                     <template if:false={works.length}>
-                        <div class="no-data">데이터가 없습니다.</div>
+                        <div class="no-data">선택한 날짜에 할당된 작업이 없습니다.</div>
                     </template>
                 </template>
                 <template if:true={error}>
@@ -43,16 +43,31 @@
                                          data-id={tech.technicianId}
                                          class={tech.className}
                                          onclick={handleTechnicianCardClick}>
+                                         <!-- lightning-progress-bar (가능한 기사에 한해서) -->
+                                         <template if:true={tech.isAvailable}>
+                                             <div class="progress-bar-wrapper">
+                                                 <lightning-progress-bar value={tech.progress}></lightning-progress-bar>
+                                                 <p class="progress-bar-label">{tech.progress}%</p>
+                                             </div>
+                                         </template>
+                                         <!-- 기술자 카드 내부 레이아웃: 4개의 섹터 -->
                                          <div class="tech-card-container">
-                                             <div class="tech-image-container">
+                                             <div class="sector tech-image-sector">
                                                  <template if:true={tech.photoUrl}>
                                                      <img src={tech.photoUrl} alt="Photo of {tech.Name}" class="tech-photo"/>
                                                  </template>
+                                                 <template if:false={tech.photoUrl}>
+                                                     <div class="tech-photo no-photo"></div>
+                                                 </template>
                                              </div>
-                                             <div class="tech-info-container">
-                                                 <p class="item-title">{tech.Name}</p>
-                                                 <p>{tech.Assigned_Districts__c}</p>
-                                                 <p>{tech.availability}</p>
+                                             <div class="sector tech-name-sector">
+                                                 <p class="tech-name">{tech.Name}</p>
+                                             </div>
+                                             <div class="sector tech-district-sector">
+                                                 <lightning-formatted-text value={tech.Assigned_Districts__c} class="tech-district"></lightning-formatted-text>
+                                             </div>
+                                             <div class="sector tech-remarks-sector">
+                                                 <p class="tech-remarks">{tech.availability}</p>
                                              </div>
                                          </div>
                                     </div>

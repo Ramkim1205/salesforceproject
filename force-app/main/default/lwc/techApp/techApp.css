@@ -48,6 +48,12 @@
     color: #555;
 }
 
+/* 상세보기 버튼 영역 - 오른쪽 정렬 */
+.button-wrapper {
+    text-align: right;
+    margin-top: 10px;
+}
+
 /* 데이터 없음 안내 */
 .no-data {
     text-align: center;
@@ -59,6 +65,25 @@
 /* Leaflet Routing Machine 안내 패널 숨기기 */
 .leaflet-routing-alternatives-container {
     display: none !important;
+}
+
+.detail-button {
+    background-color: #0070d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+.detail-button:hover {
+    background-color: #005bb5;
+}
+
+/* 카카오 버튼 가운데 정렬 */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .custom-button {

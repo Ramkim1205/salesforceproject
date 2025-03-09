@@ -13,6 +13,8 @@ import LATITUDE_FIELD from '@salesforce/schema/Lead.Latitude__c';
 import LONGITUDE_FIELD from '@salesforce/schema/Lead.Longitude__c';
 import CONFIRMED_FIELD from '@salesforce/schema/Lead.TableOrder__c';
 import DISTRICT_FIELD from '@salesforce/schema/Lead.District__c';  // 구 정보 필드 추가
+import LeadSource_FIELD from '@salesforce/schema/Lead.LeadSource';
+
 
 export default class LeadMap extends LightningElement {
     @api recordId;
@@ -158,13 +160,14 @@ export default class LeadMap extends LightningElement {
         }
 
         const fields = {};
-        fields[NAME_FIELD.fieldApiName] = this.company + '의 리드';
+        fields[NAME_FIELD.fieldApiName] = this.company ;
         fields[COMPANY_FIELD.fieldApiName] = this.company;
         fields[ADDRESS_FIELD.fieldApiName] = this.address;
         fields[LATITUDE_FIELD.fieldApiName] = this.latitude;
         fields[LONGITUDE_FIELD.fieldApiName] = this.longitude;
         fields[CONFIRMED_FIELD.fieldApiName] = this.isChecked;
         fields[DISTRICT_FIELD.fieldApiName] = this.district;
+        fields[LeadSource_FIELD.fieldApiName] = 'Other';
 
         createRecord({ apiName: LEAD_OBJECT.objectApiName, fields })
             .then((lead) => {

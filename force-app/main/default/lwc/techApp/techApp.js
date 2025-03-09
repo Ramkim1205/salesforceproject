@@ -89,10 +89,12 @@ export default class TechApp extends NavigationMixin(LightningElement) {
 
     handleDateChange(event) {
         this.selectedDate = event.target.value;
+        console.log('Selected date:', this.selectedDate);
         if (this.selectedDate) {
             getWorksForDate({ selectedDate: this.selectedDate })
                 .then(result => {
                     let worksWithDate = result.map(work => {
+                        console.log('work:', work);
                         let newWork = { ...work };
                         newWork.formattedDate = work.Scheduled_Date__c 
                             ? new Date(work.Scheduled_Date__c).toLocaleString() 

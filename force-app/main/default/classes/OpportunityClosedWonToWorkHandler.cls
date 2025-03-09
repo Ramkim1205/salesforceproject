@@ -19,6 +19,7 @@ public class OpportunityClosedWonToWorkHandler {
                 work.Scheduled_Date__c = opp.Installdate__c;
                 
                 work.Account__c = opp.AccountId;
+                work.Opportunity__c = opp.Id;
                 
                 // Technicion__c는 아직 할당되지 않았으므로 null로 둠
                 work.Technician__c = null;

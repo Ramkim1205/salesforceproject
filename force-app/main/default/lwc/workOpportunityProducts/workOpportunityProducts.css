@@ -1,0 +1,57 @@
+/****************************************
+ * 상위 Lightning Card 내부에 들어가는 
+ * 그리드 및 카드(Tile) 스타일 
+ ****************************************/
+
+/* 그리드 전체 컨테이너에 약간의 최대 너비를 줄 수도 있음(옵션) */
+.product-grid {
+    max-width: 960px; 
+    margin: 0 auto; 
+}
+
+/* 제품별 타일에 살짝 테두리와 그림자 */
+.product-tile {
+    border: 1px solid #d8dde6;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+}
+
+/* 이미지 컨테이너 */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 실제 이미지 크기 (너무 크지 않도록) */
+.image-container img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 4px;
+}
+
+/* 이미지가 없을 때 표시할 박스 */
+.no-image {
+    width: 80px;
+    height: 80px;
+    background: #f3f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* 제품명 스타일 */
+.product-name {
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+}
+
+/* 수량 스타일 */
+.quantity {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+}

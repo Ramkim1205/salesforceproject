@@ -16,9 +16,12 @@
                             <div class="card-title">{work.Name}</div>
                             <div class="card-detail">날짜: {work.formattedDate}</div>
                             <div class="card-detail">주소: {work.Address__c}</div>
-                            <button class="detail-button" data-id={work.Id} onclick={handleViewDetail}>
-                                상세보기
-                            </button>
+                            <!-- 상세보기 버튼을 감싸는 영역을 추가하여 오른쪽 정렬 -->
+                            <div class="button-wrapper">
+                                <button class="detail-button" data-id={work.Id} onclick={handleViewDetail}>
+                                    상세보기
+                                </button>
+                            </div>
                         </div>
                     </template>
                 </template>
@@ -27,6 +30,7 @@
                 </template>
             </template>
         </div>
+        <!-- 카카오 길안내 버튼을 감싸는 영역을 가운데 정렬 -->
         <div class="button-container">
             <button class="custom-button" onclick={openKakaoMapFirstWork}>카카오 길안내</button>
         </div>

@@ -51,38 +51,107 @@
     transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
     cursor: pointer;
 }
-
-/* 선택되지 않은 카드에 hover 효과 적용 */
 .item-card:not(.selected):hover {
     transform: scale(1.02);
     background-color: #f9f9f9;
     opacity: 0.9;
 }
-
-/* 선택된 카드 */
 .item-card.selected {
     border-color: #0070d2;
     background-color: #ffffff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* 기본 Work 카드 스타일 */
-.work-card {
-    /* 추가 스타일 필요 시 여기에 설정 */
+/* Work 카드 스타일: 제목 크게, 텍스트 어두운 회색 */
+.work-card .item-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.work-card p {
+    color: #333;
 }
 
 /* 기본 Technician 카드 스타일 */
 .technician-card {
-    background-color: transparent; /* 가능한 기술자: 기본 투명 */
+    background-color: transparent; /* 가능한 기사: 기본 투명 */
+    min-height: 100px;
+    padding: 5px 10px;
 }
 
-/* 클릭 불가한 기사 카드 (시간 충돌) - 회색 */
+/* Progress Bar Wrapper: lightning-progress-bar는 자체 스타일 적용 */
+.progress-bar-wrapper {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* 기술자 카드 내부 레이아웃: 4개의 섹터로 분할 */
+.tech-card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+/* 공통 섹터 스타일 */
+.sector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-right: 1px solid #eee;
+}
+.sector:last-child {
+    border-right: none;
+}
+
+/* 이미지 섹터: 고정 크기 */
+.tech-image-sector {
+    flex: 0 0 80px;
+    justify-content: center;
+    align-items: center;
+}
+.tech-image-sector .tech-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 기사 이름 섹터 */
+.tech-name-sector {
+    flex: 1;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 관할 구역 섹터: 세로 정렬, 줄바꿈 적용 */
+.tech-district-sector {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    color: #555;
+    white-space: pre-line;
+}
+
+/* 비고(availability) 섹터 */
+.tech-remarks-sector {
+    flex: 1;
+    font-size: 1em;
+    text-align: center;
+    color: #555;
+}
+
+/* 클릭 불가능한 기사 카드 (시간 충돌) - 회색 배경 */
 .unavailable-conflict {
     background-color: #ccc;
     pointer-events: none;
 }
 
-/* 클릭 불가한 기사 카드 (근무시간 아님) - 연한 빨강 */
+/* 클릭 불가능한 기사 카드 (근무시간 아님) - 연한 빨강 배경 */
 .unavailable-hours {
     background-color: #ffcccc;
     pointer-events: none;
@@ -93,25 +162,11 @@
     background-color: #ffffff;
 }
 
-/* 기술자 카드 내부 레이아웃: 이미지 왼쪽, 정보 오른쪽 */
-.tech-card-container {
+/* 버튼 컨테이너 - 가운데 정렬 */
+.button-container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.tech-image-container {
-    margin-right: 10px;
-}
-
-.tech-photo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.tech-info-container {
-    flex: 1;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 /* 데이터 없음 안내 */
@@ -127,10 +182,4 @@
     color: red;
     padding: 10px;
     text-align: center;
-}
-
-/* 버튼 컨테이너 */
-.button-container {
-    text-align: center;
-    margin-top: 10px;
 }

@@ -1,0 +1,46 @@
+<template>
+    <lightning-card 
+        title="제품 리스트"
+        icon-name="standard:work_order"
+        class="slds-m-around_medium"
+    >
+    <template if:true={hasProducts}>
+        <div class="product-list-container">
+            <!-- 에러 표시 -->
+            <template if:true={error}>
+                <p class="slds-text-color_error error-message">Error: {error.body.message}</p>
+            </template>
+
+            <!-- OpportunityLineItem 목록 표시 -->
+            <template if:true={lineItems}>
+                <template for:each={lineItems} for:item="lineItem">
+                    <lightning-card 
+                        key={lineItem.Id} 
+                        class="slds-m-around_small"
+                    >
+                        <div class="card-content">
+                            <div class="image-container">
+                                <template if:true={lineItem.PricebookEntry.Product2.DisplayUrl}>
+                                    <img 
+                                        src={lineItem.PricebookEntry.Product2.DisplayUrl}
+                                        alt={lineItem.PricebookEntry.Product2.Name}
+                                    />
+                                </template>
+                                <template if:false={lineItem.PricebookEntry.Product2.DisplayUrl}>
+                                    <div class="no-image">
+                                        No Image
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="divider">|</div>
+                            <div class="quantity-container">
+                                <p>수량: {lineItem.Quantity}</p>
+                            </div>
+                        </div>
+                    </lightning-card>
+                </template>
+            </template>
+        </div>
+    </template>
+</lightning-card>
+</template>

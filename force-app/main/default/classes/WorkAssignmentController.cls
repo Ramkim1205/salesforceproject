@@ -28,7 +28,7 @@ public with sharing class WorkAssignmentController {
         DateTime workEnd = workStart.addHours(2);
         
         // 2. 후보 기사 조회: Assigned_Districts__c에 Work의 District__c 포함
-        // User__r.SmallPhotoUrl 필드를 추가하여 기사에 연결된 사용자 사진 URL을 가져옵니다.
+        // User__r.SmallPhotoUrl 필드를 추가하여 사진 URL도 가져옵니다.
         List<Technician__c> candidates = [
             SELECT Id, Name, Assigned_Districts__c, User__r.SmallPhotoUrl
             FROM Technician__c
@@ -78,7 +78,7 @@ public with sharing class WorkAssignmentController {
             techWorkingHours.put(wh.Technician__c, wh);
         }
         
-        // 5. Availability 계산: 시간 충돌 및 근무시간 체크
+        // 5. Availability 계산: 시간 충돌 및 근무시간 체크 + progress 계산 (최대 5개 기준)
         Time workStartTime = workStart.time();
         Time workEndTime = workEnd.time();
         for (Technician__c tech : candidates) {
@@ -103,13 +103,17 @@ public with sharing class WorkAssignmentController {
             } else {
                 availability = '근무시간 아님';
             }
+            // progress 계산: 해당 날짜에 배정된 work 수 / 5 (최대 5개)
+            Integer count = techAssignments.containsKey(tech.Id) ? techAssignments.get(tech.Id).size() : 0;
+            Integer progress = Math.min(Math.round((Decimal.valueOf(count) / 5) * 100), 100);
+            
             Map<String, Object> techMap = new Map<String, Object>();
             techMap.put('technicianId', tech.Id);
             techMap.put('Name', tech.Name);
             techMap.put('Assigned_Districts__c', tech.Assigned_Districts__c);
             techMap.put('availability', availability);
-            // 사진 URL 추가: User__r.SmallPhotoUrl (없으면 null)
             techMap.put('photoUrl', tech.User__r != null ? tech.User__r.SmallPhotoUrl : null);
+            techMap.put('progress', progress);
             resultList.add(techMap);
         }
         return resultList;

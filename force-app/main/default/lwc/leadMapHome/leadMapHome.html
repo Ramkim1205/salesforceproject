@@ -1,5 +1,28 @@
 <template>
     <lightning-card title="Lead 대시보드">
+        <!-- 필터 버튼 영역 -->
+        <div class="filter-buttons">
+            <button class="filter-btn" data-filter="타사제품이용" onclick={toggleFilter}>
+                <img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="타사제품이용" class="filter-icon"/>
+                타사제품이용
+            </button>
+            <button class="filter-btn" data-filter="설치된 매장" onclick={toggleFilter}>
+                <img src="https://maps.google.com/mapfiles/ms/icons/blue-dot.png" alt="설치된 매장" class="filter-icon"/>
+                설치된 매장
+            </button>
+            <button class="filter-btn" data-filter="우선순위 낮음" onclick={toggleFilter}>
+                <img src="https://dreamorder-dev-ed.develop.lightning.force.com/img/samples/flag_yellow.gif" alt="우선순위 낮음" class="filter-icon"/>
+                우선순위 낮음
+            </button>
+            <button class="filter-btn" data-filter="우선순위 중간" onclick={toggleFilter}>
+                <img src="https://dreamorder-dev-ed.develop.lightning.force.com/img/samples/flag_red.gif" alt="우선순위 중간" class="filter-icon"/>
+                우선순위 중간
+            </button>
+            <button class="filter-btn" data-filter="우선순위 높음" onclick={toggleFilter}>
+                <img src="https://dreamorder-dev-ed.develop.lightning.force.com/img/samples/flag_green.gif" alt="우선순위 높음" class="filter-icon"/>
+                우선순위 높음
+            </button>
+        </div>
         <div class="map-container" style="width: 100%; height: 500px;"></div>
     </lightning-card>
 </template>

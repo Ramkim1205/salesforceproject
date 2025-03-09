@@ -19,7 +19,16 @@ export default class WorkAssignmentToTech extends LightningElement {
         this.wiredWorksResult = result;
         if (result.data) {
             this.works = result.data.map(work => {
-                return { ...work, isSelected: false, className: 'item-card work-card' };
+                const localDateTime = new Date(work.Scheduled_Date__c);
+                const formattedDate = localDateTime.toLocaleString('ko-KR', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                return { ...work, isSelected: false, className: 'item-card work-card', formattedDate: formattedDate };
             });
             this.error = undefined;
         } else if (result.error) {
@@ -45,8 +54,11 @@ export default class WorkAssignmentToTech extends LightningElement {
         console.log('선택된 Work:', this.selectedWork);
         getTechniciansByWorkDistrictAll({ workId: workId })
             .then(result => {
-                // 각 기술자 Map에 대해, availability에 따라 CSS 클래스를 설정하고 photoUrl 포함
-                this.technicians = result.map(techMap => {
+                let techs = result.map(techMap => {
+                    let districts = techMap.Assigned_Districts__c;
+                    if (districts) {
+                        districts = districts.replace(/;/g, '\n');
+                    }
                     let baseClass = 'item-card technician-card';
                     if (techMap.availability === '가능') {
                         baseClass += ' technician-available';
@@ -55,8 +67,28 @@ export default class WorkAssignmentToTech extends LightningElement {
                     } else if (techMap.availability === '근무시간 아님') {
                         baseClass += ' unavailable-hours';
                     }
-                    return { ...techMap, isSelected: false, className: baseClass };
+                    let isAvailable = (techMap.availability === '가능');
+                    return { 
+                        ...techMap, 
+                        Assigned_Districts__c: districts, 
+                        isSelected: false, 
+                        className: baseClass,
+                        isAvailable: isAvailable
+                    };
                 });
+                // 정렬: 가능한 기사들을 상단에, progress 값 오름차순
+                techs.sort((a, b) => {
+                    if (a.availability === '가능' && b.availability !== '가능') {
+                        return -1;
+                    } else if (a.availability !== '가능' && b.availability === '가능') {
+                        return 1;
+                    } else if (a.availability === '가능' && b.availability === '가능') {
+                        return a.progress - b.progress;
+                    } else {
+                        return 0;
+                    }
+                });
+                this.technicians = techs;
             })
             .catch(error => {
                 this.dispatchEvent(new ShowToastEvent({
@@ -69,7 +101,7 @@ export default class WorkAssignmentToTech extends LightningElement {
         this.selectedTechnician = undefined;
     }
 
-    // Technician 카드 클릭 (availability "가능"인 경우만 선택)
+    // Technician 카드 클릭 (availability "가능"인 경우만 선택) - 단 하나만 선택되도록 수정
     handleTechnicianCardClick(event) {
         const techId = event.currentTarget.dataset.id;
         const clickedTech = this.technicians.find(tech => tech.technicianId === techId);
@@ -78,13 +110,10 @@ export default class WorkAssignmentToTech extends LightningElement {
         }
         this.technicians = this.technicians.map(tech => {
             if (tech.technicianId === techId) {
-                tech.isSelected = true;
-                tech.className = tech.className + ' selected';
+                return { ...tech, isSelected: true, className: tech.className.replace(' selected', '') + ' selected' };
             } else {
-                tech.isSelected = false;
-                tech.className = tech.className.replace(' selected', '');
+                return { ...tech, isSelected: false, className: tech.className.replace(' selected', '') };
             }
-            return tech;
         });
         this.selectedTechnician = this.technicians.find(tech => tech.technicianId === techId);
         console.log('선택된 Technician:', this.selectedTechnician);
