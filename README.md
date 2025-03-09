@@ -76,7 +76,7 @@ https://github.com/user-attachments/assets/312b7c08-9907-4445-9670-338fb2c5e98a
 
 ### 📌 **기능 2 - Web_To_Case Lead 확보 & 주소 데이터 추가**
 - 모바일 폼 팩터가 주를 이루는 요즘 시대에 더욱 간편하게 사용자로하여금 정보를 입력하여 리드확보가 더 많아 지게끔 프론트엔드 페이지 제작하여 배포함.
-- Web-To-Lead 문서 : [https://github.com/your-github](https://github.com/LEEJUNGHOOON/webtolead)
+- Web-To-Lead 문서 : [https://github.com/web-to-lead](https://github.com/LEEJUNGHOOON/webtolead)
 - 📽 [시연 영상]
 
 
