@@ -280,9 +280,10 @@ https://github.com/user-attachments/assets/b63ec42b-648d-459a-98e9-bb90f3da7e1c
 - 해당 데이터를 바탕으로 **권역별 영업 인력 증원 여부 결정 가능**  
 
 🖼 **권역별 리드 중요도 시각화 예시**  
-| 리드 우선순위필드 | 리드 중요도 분석 |
-|--------------|--------------|
-|  <img width="913" alt="스크린샷 2025-03-10 오후 1 52 02" src="https://github.com/user-attachments/assets/17b17d12-9916-4136-891b-7fd4ff6aa558" />| |<img width="449" alt="스크린샷 2025-03-10 오후 1 50 41" src="https://github.com/user-attachments/assets/588a7d8e-7129-4786-91e8-67825f9ab659" />
+
+| 리드 우선순위 필드 | 리드 중요도 분석 |
+|-----------------|-----------------|
+| <img width="913" alt="리드 우선순위 필드" src="https://github.com/user-attachments/assets/17b17d12-9916-4136-891b-7fd4ff6aa558" /> | <img width="449" alt="리드 중요도 분석" src="https://github.com/user-attachments/assets/fab2a65f-90a8-40e9-8c7d-13509ab6e9f4" /> |
 
 
 ---
