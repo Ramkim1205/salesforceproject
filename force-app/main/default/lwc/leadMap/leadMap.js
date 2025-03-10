@@ -14,6 +14,7 @@ import LONGITUDE_FIELD from '@salesforce/schema/Lead.Longitude__c';
 import CONFIRMED_FIELD from '@salesforce/schema/Lead.TableOrder__c';
 import DISTRICT_FIELD from '@salesforce/schema/Lead.District__c';  // 구 정보 필드 추가
 import LeadSource_FIELD from '@salesforce/schema/Lead.LeadSource';
+import MobilePhone_FIELD from '@salesforce/schema/Lead.MobilePhone';
 
 
 export default class LeadMap extends LightningElement {
@@ -158,17 +159,18 @@ export default class LeadMap extends LightningElement {
             }));
             return;
         }
-
+    
         const fields = {};
-        fields[NAME_FIELD.fieldApiName] = this.company ;
-        fields[COMPANY_FIELD.fieldApiName] = this.company;
-        fields[ADDRESS_FIELD.fieldApiName] = this.address;
-        fields[LATITUDE_FIELD.fieldApiName] = this.latitude;
-        fields[LONGITUDE_FIELD.fieldApiName] = this.longitude;
-        fields[CONFIRMED_FIELD.fieldApiName] = this.isChecked;
-        fields[DISTRICT_FIELD.fieldApiName] = this.district;
+        fields[NAME_FIELD.fieldApiName] = this.company || 'Default Name';
+        fields[COMPANY_FIELD.fieldApiName] = this.company || 'Unknown Company';
+        fields[ADDRESS_FIELD.fieldApiName] = this.address || 'No Address';
+        fields[LATITUDE_FIELD.fieldApiName] = this.latitude ? parseFloat(this.latitude) : 0.0;
+        fields[LONGITUDE_FIELD.fieldApiName] = this.longitude ? parseFloat(this.longitude) : 0.0;
+        fields[DISTRICT_FIELD.fieldApiName] = this.district || 'Unknown';
+        fields[CONFIRMED_FIELD.fieldApiName] = this.isChecked ? true : false;
         fields[LeadSource_FIELD.fieldApiName] = 'Other';
-
+        fields[MobilePhone_FIELD.fieldApiName] = '010-0000-0000';
+    
         createRecord({ apiName: LEAD_OBJECT.objectApiName, fields })
             .then((lead) => {
                 this.dispatchEvent(new ShowToastEvent({
@@ -178,7 +180,20 @@ export default class LeadMap extends LightningElement {
                 }));
             })
             .catch(error => {
-                console.error('❌ Lead 생성 실패:', error);
+                console.error('❌ Lead 생성 실패:', JSON.stringify(error, null, 2));
+            
+                let errorMessage = 'Unknown error occurred';
+                if (error.body && error.body.message) {
+                    errorMessage = error.body.message;
+                } else if (error.body && error.body.output && error.body.output.errors) {
+                    errorMessage = error.body.output.errors.map(err => err.message).join(', ');
+                }
+            
+                this.dispatchEvent(new ShowToastEvent({
+                    title: 'Error',
+                    message: `Lead 생성 실패: ${errorMessage}`,
+                    variant: 'error'
+                }));
             });
     }
 }
