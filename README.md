@@ -421,9 +421,9 @@ https://github.com/user-attachments/assets/d6802811-d512-4999-87c5-ee39be2317c7
 
 ## 6️⃣ API & SOQL
 
-📌 **API 및 SOQL 쿼리는 [Wiki Page](https://github.com/your-repo/wiki)에 정리했습니다.**  
-🔗 **[📖 API 문서 바로가기](https://github.com/your-repo/wiki/API-Docs)**  
-🔗 **[📖 SOQL 문서 바로가기](https://github.com/your-repo/wiki/SOQL-Queries)**  
+📌 **API 및 SOQL 쿼리는 [Wiki Page](https://github.com/LEEJUNGHOOON/salesforceproject/wiki)에 정리했습니다.**  
+🔗 **[📖 API 문서 바로가기](https://github.com/LEEJUNGHOOON/salesforceproject/wiki/API)**  
+🔗 **[📖 APEX & SOQL 문서 바로가기](https://github.com/LEEJUNGHOOON/salesforceproject/wiki/APEX-&-SOQL)**  
 
 ---
 
