@@ -82,11 +82,23 @@ https://github.com/user-attachments/assets/312b7c08-9907-4445-9670-338fb2c5e98a
 
 https://github.com/user-attachments/assets/4178a3e2-b65a-4c55-8d2c-7d1ed257e149
 
+- 또한 업무 프로세스상 모든 고객,혹은 잠재고객의 정확한 위치가 필요하여, 주소 정보가 없는 lead일 경우 영업사원으로 하여금 쉽게 해당 리드의 위치를 확보 할 수 있게 끔 도모하는 컴포넌트 개발함
+- 1. 컴포넌트에 매장의 이름을 입력-> 매장의 이름을 주소변환 api를 거쳐 정확한 주소와 위,경도 값을 return -> 해당 lead 업데이트
 
 
-### 📌 **기능 3 - 댓글 기능**
-- 설명을 작성하세요.
-- 📽 **[시연 영상 보기](https://www.youtube.com/)**
+https://github.com/user-attachments/assets/17aa34eb-a351-4eec-980d-41584532c216
+
+
+
+### 📌 **기능 3 - CPQ**
+- 영업 팀이 주문 견적을 신속하고 정확하게 생성할 수 있도록 해주는 Drag&Drop 형태의 CPQ시스템
+- opportunity가 '솔루션 제안' 단계일때 CPQ 시스템이 visible 되면 해당 고객에 맞는 제품과 수량을 간편히 입력 후 저장하면 금액,견적서 자동생성
+- 영업사원이 해당 opportunity에 연관된 products를 쉽게 확인할 수 있는 컴포넌트 개발
+- 📽 [시연 영상]
+
+https://github.com/user-attachments/assets/4064ddf0-9ce4-42dc-b780-4b2f00658d14
+
+
 
 ### 📌 **기능 4 - 실시간 채팅**
 - 설명을 작성하세요.
