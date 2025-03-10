@@ -297,11 +297,61 @@ https://github.com/user-attachments/assets/b63ec42b-648d-459a-98e9-bb90f3da7e1c
 
 > 🚀 **이 기능은 Leaflet 지도 API와 Salesforce 데이터를 연동하여, 영업 활동을 효과적으로 시각화하고 전략적으로 활용할 수 있도록 설계되었습니다.**
 
-### 📌 **기능 7 - 관리자 페이지**
-- 설명을 작성하세요.
-- 📽 **[시연 영상 보기](https://www.youtube.com/)**
+# 🚀 기능 7 - Tableau 대시보드  
+
+## 📖 개요  
+이 기능은 **Tableau를 활용한 시각적 데이터 분석 대시보드**를 제공합니다.  
+**서울시 권역별 설치 데이터**를 매핑하고, **총 설치 수 & 점유율 분석**을 통해 CEO가  
+**빠르고 직관적인 의사결정**을 할 수 있도록 설계되었습니다.  
 
 ---
+
+## 🛠 **1️⃣ 권역별 설치 데이터 매핑**  
+- **Tableau 지도(Map) 시각화 기능을 활용하여 설치된 매장을 권역별로 시각화**  
+- 서울시 전체 지도에서 각 자치구별로 **설치된 매장 수를 색상으로 구분**  
+- 특정 구역을 클릭하면 **해당 구역의 점유율**을 확인 가능  
+
+🖼 **권역별 설치 데이터 매핑 예시**  
+
+<img width="920" alt="스크린샷 2025-03-10 오후 2 45 13" src="https://github.com/user-attachments/assets/1bfc7f7f-5c35-42e6-a3fe-34240e7986cf" />
+
+---
+
+
+## 🛠 **2️⃣ 권역별 점유율 분석 (도넛 차트 활용)**  
+- **도넛 차트(Donut Chart)를 활용한 권역별 점유율 분석**  
+- 권역별로 **설치된 제품 비율을 한눈에 확인 가능**  
+- **각 권역을 클릭하면 해당 구역의 세부 데이터로 Drill-Down 가능**  
+
+🖼 **권역별 점유율 도넛 차트 예시**  
+
+| 용산구 | 송파구 |
+|-----------------|-----------------|
+| <img width="930" alt="스크린샷 2025-03-10 오후 2 45 51" src="https://github.com/user-attachments/assets/73b5bbde-4e62-4802-8e1c-686bdb652fdf" /> | <img width="929" alt="스크린샷 2025-03-10 오후 2 47 42" src="https://github.com/user-attachments/assets/d00230d4-d9c4-41e5-aa7b-75ce2bc0a371" />|
+---
+
+## 🎯 **기대 효과**  
+✅ **CEO가 제품 설치 현황을 직관적으로 파악 가능**  
+✅ **구역별 점유율 & 시장 트렌드 분석 가능**  
+✅ **필터링 기능을 통한 맞춤형 데이터 조회 가능**  
+✅ **데이터 기반으로 최적의 의사결정 지원**  
+
+---
+
+> 🚀 **이 대시보드는 Tableau의 강력한 시각화 기능을 활용하여, 설치 데이터의 흐름을 명확하게 파악하고,  
+> 비즈니스 전략을 최적화할 수 있도록 설계되었습니다.**
+
+---
+
+# 🚀 ETC
+1)Dock
+
+
+https://github.com/user-attachments/assets/0fc9c165-1aeb-4303-9014-c3d17bf7dfdb
+
+
+
+
 
 ## 6️⃣ API & SOQL
 
@@ -356,7 +406,7 @@ https://github.com/user-attachments/assets/b63ec42b-648d-459a-98e9-bb90f3da7e1c
 ---
 
 ## 📞 **문의**
-📧 이메일: [contact@example.com](mailto:contact@example.com)  
+📧 이메일: [contact@example.com](wjdgns9799@gmail.com)  
 🐙 GitHub: [@your-github](https://github.com/your-github)
 
 ---
