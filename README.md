@@ -410,7 +410,11 @@ https://github.com/user-attachments/assets/685daa1e-0952-4d42-8ff2-b45543b9d8e1
 ✅ **고객이 쉽게 탐색할 수 있는 Product Slide UI 도입**  
 
 
-https://github.com/user-attachments/assets/d6802811-d512-4999-87c5-ee39be2317c7
+
+
+https://github.com/user-attachments/assets/2a74c090-2a40-4bf1-a6d4-029f88e340e4
+
+
 
 
 ---
@@ -459,6 +463,23 @@ https://github.com/user-attachments/assets/d6802811-d512-4999-87c5-ee39be2317c7
 ## 📌 **9️⃣ 문의**
 📧 이메일: [wjdgns9799@gmail.com](mailto:wjdgns9799@gmail.com)  
 🐙 GitHub: [LEEJUNGHOOON](https://github.com/LEEJUNGHOOON)  
+
+---
+
+## 📌 **🔟 레퍼런스**
+본 프로젝트는 아래의 문서를 참고하여 개발되었습니다.
+
+- 📌 **Salesforce 공식 Help 문서**  
+  🔗 [Salesforce Help Center](https://help.salesforce.com/)  
+
+- 📌 **LWC 컴포넌트**  
+  🔗 [Sudeer Kamat's GitHub](https://github.com/SudeerKamat)  
+
+- 📌 **Trailhead Salesforce Quick Start**  
+  🔗 [Quick Start: eBikes Sample App](https://trailhead.salesforce.com/ko/content/learn/projects/quick-start-ebikes-sample-app/get-to-know-app-ebikes)  
+
+- 📌 **Aamoos 블로그 (Tistory)**  
+  🔗 [leaflet 관련 자료](https://aamoos.tistory.com/428)  
 
 ---
 
