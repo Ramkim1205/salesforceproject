@@ -8,25 +8,28 @@
 
 ---
 
-## 1️⃣ 프로젝트 개요
+## 📌 **1️⃣ 프로젝트 개요**
 
 ### 🎯 **프로젝트 목표**
-- 📌 목표 1 
-- 📌 목표 2
-- 📌 목표 3
-
-### 👨‍👩‍👧‍👦 **팀원 소개 및 역할**
-| 이름  | 역할  | GitHub |
-|------|------|--------|
-| 신동원 | Admin(PM) | [GitHub Profile](https://github.com/) |
-| 이경택 | Admin | [GitHub Profile](https://github.com/) |
-| 김은진 | Admin | [GitHub Profile](https://github.com/) |
-| 이정훈 | Developer(PL) | [GitHub Profile](https://github.com/) |
-| 김우람 | Developer | [GitHub Profile](https://github.com/) |
+- ✅ **효율적인 Lead 관리**: 지도 기반 Lead 확보 및 자동화된 데이터 수집 기능 제공  
+- ✅ **최적화된 설치 배정 시스템**: FSL를 레퍼런스로한 한국 시장에 적합한 지역 및 기사 근무시간을 고려한 최적 배정 알고리즘 구축  
+- ✅ **데이터 기반 의사결정 지원**: Tableau 대시보드를 활용한 영업 전략 수립  
 
 ---
 
-## 2️⃣ 프로젝트 프로세스
+## 📌 **2️⃣ 팀원 소개**
+### 👨‍💻 **팀원 및 역할**
+| **사진** | **이름** | **역할** | **GitHub** |
+|---------|--------|---------|------------|
+| ![신동원](https://via.placeholder.com/100) | 신동원 | Admin (PM) | [GitHub](https://github.com/) |
+| ![이경택](https://via.placeholder.com/100) | 이경택 | Admin | [GitHub](https://github.com/) |
+| ![김은진](https://via.placeholder.com/100) | 김은진 | Admin | [GitHub](https://github.com/) |
+| ![이정훈](https://via.placeholder.com/100) | 이정훈 | Developer (PL) | [GitHub](https://github.com/) |
+| ![김우람](https://via.placeholder.com/100) | 김우람 | Developer | [GitHub](https://github.com/) |
+
+---
+
+## 3️⃣ 프로젝트 프로세스
 
 📌 **설명:** 프로젝트가 어떻게 진행되었는지 설명합니다.
 
@@ -35,7 +38,7 @@
 
 ---
 
-## 3️⃣ ERD (Entity-Relationship Diagram)
+## 4️⃣ ERD (Entity-Relationship Diagram)
 
 📌 **ERD 설명:** 데이터베이스 구조 및 관계 설명
 
@@ -46,7 +49,7 @@
 
 ---
 
-## 4️⃣ 요구사항 명세서
+## 5️⃣ 요구사항 명세서
 
 📌 **기능별 요구사항 정리**
 <br>
@@ -54,11 +57,10 @@
 
 ---
 
-## 5️⃣ 주요 기능
+## 6️⃣ 주요 기능
 
-> 아래는 프로젝트의 주요 기능 7가지입니다.
 
-### 📌 **기능 1 - OutBound Lead 확보**
+### 📌 Feature 1 – Outbound Lead Acquisition
 - 테이블오더 영업 특성상 outbound영업 및 리드확보가 많은점을 고려하여,또 일일이 내가 확보한 리드의 정확한 위치를 입력하는데 불편하고 정확도가 떨어진다는 pain point가 존재.
 - 컴포넌트에서 지도상에 리드의 위치를 누르고 회사명을 입력, 현재 타사 테이블 오더 이용중인지(차후 지역별 자사제품 점유율에 활용) 확인하고 save 버튼누르면 리드생성
 -  1. 지도위치 클릭 -> 2. 해당 위치를 위도,경도 변환 api를 활용해 위도,경도 값 받음 -> 3. 주소변환 api를 통해 위도,경도를 정확한 주소값으로 변환-> 4. 리드 필드에 저장
@@ -74,7 +76,8 @@ https://github.com/user-attachments/assets/312b7c08-9907-4445-9670-338fb2c5e98a
 
 
 
-### 📌 **기능 2 - Web_To_Case Lead 확보 & 주소 데이터 추가**
+### 📌 Feature 2 – Web-To-Case Lead Acquisition & Address Data Addition
+
 - 모바일 폼 팩터가 주를 이루는 요즘 시대에 더욱 간편하게 사용자로하여금 정보를 입력하여 리드확보가 더 많아 지게끔 프론트엔드 페이지 제작하여 배포함.
 - Web-To-Lead 문서 : [https://github.com/web-to-lead](https://github.com/LEEJUNGHOOON/webtolead)
 - 📽 [시연 영상]
@@ -90,7 +93,8 @@ https://github.com/user-attachments/assets/17aa34eb-a351-4eec-980d-41584532c216
 
 
 
-### 📌 **기능 3 - CPQ**
+### 📌 Feature 3 – CPQ System
+
 - 영업 팀이 주문 견적을 신속하고 정확하게 생성할 수 있도록 해주는 Drag&Drop 형태의 CPQ시스템
 - opportunity가 '솔루션 제안' 단계일때 CPQ 시스템이 visible 되면 해당 고객에 맞는 제품과 수량을 간편히 입력 후 저장하면 금액,견적서 자동생성
 - 영업사원이 해당 opportunity에 연관된 products를 쉽게 확인할 수 있는 컴포넌트 개발
@@ -99,8 +103,8 @@ https://github.com/user-attachments/assets/17aa34eb-a351-4eec-980d-41584532c216
 https://github.com/user-attachments/assets/4064ddf0-9ce4-42dc-b780-4b2f00658d14
 
 
+### 📌 Feature 4 – Installation Work Assignment System (Sales Operation)
 
-### 📌 **기능 4 - 설치 작업 배정 시스템(Sales Operation)**
 ## 📖 개요
 본 시스템은 고객의 설치 요청을 효율적으로 기사들에게 배정하는 기능을 제공합니다.  
 Salesforce를 기반으로 기사와 작업 요청을 매칭하며, 자동화된 필터링 및 추천 알고리즘을 활용하여 최적의 기사를 배정합니다.
@@ -230,7 +234,7 @@ https://github.com/user-attachments/assets/b63ec42b-648d-459a-98e9-bb90f3da7e1c
 
 
 
-# 🚀 기능 6 - 데이터 시각화 및 대시보드  
+### 📌 Feature 6 – Data Visualization & Dashboard
 
 ## 📖 개요  
 이 기능은 **Salesforce 데이터를 활용한 시각적 분석**을 제공하며,  
@@ -297,7 +301,7 @@ https://github.com/user-attachments/assets/b63ec42b-648d-459a-98e9-bb90f3da7e1c
 
 > 🚀 **이 기능은 Leaflet 지도 API와 Salesforce 데이터를 연동하여, 영업 활동을 효과적으로 시각화하고 전략적으로 활용할 수 있도록 설계되었습니다.**
 
-# 🚀 기능 7 - Tableau 대시보드  
+### 📌 Feature 7 – Tableau Dashboard
 
 ## 📖 개요  
 이 기능은 **Tableau를 활용한 시각적 데이터 분석 대시보드**를 제공합니다.  
@@ -343,7 +347,7 @@ https://github.com/user-attachments/assets/b63ec42b-648d-459a-98e9-bb90f3da7e1c
 
 ---
 
-# 🚀 ETC (기타 기능)
+### 🚀 ETC (기타 기능)
 
 본 섹션에서는 **추가적인 UI/UX 개선 기능**을 소개합니다.  
 이 기능들은 **사용자 경험(UX) 최적화 및 직관적인 인터페이스 제공**을 목적으로 설계되었습니다.
@@ -419,7 +423,7 @@ https://github.com/user-attachments/assets/d6802811-d512-4999-87c5-ee39be2317c7
 
 
 
-## 6️⃣ API & SOQL
+## 7️⃣ API & SOQL
 
 📌 **API 및 SOQL 쿼리는 [Wiki Page](https://github.com/LEEJUNGHOOON/salesforceproject/wiki)에 정리했습니다.**  
 🔗 **[📖 API 문서 바로가기](https://github.com/LEEJUNGHOOON/salesforceproject/wiki/API)**  
@@ -427,53 +431,34 @@ https://github.com/user-attachments/assets/d6802811-d512-4999-87c5-ee39be2317c7
 
 ---
 
-## 7️⃣ 기술 스택
+## 📌 **8️⃣ 기술 스택**
+📌 **프로젝트에서 사용된 주요 기술 스택**
 
-📌 **Backend**
+### **💻 Backend**
+- ![Apex](https://img.shields.io/badge/Apex-0055CC?style=flat&logo=salesforce&logoColor=white)
 - ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
-- ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
-- ![Salesforce](https://img.shields.io/badge/Salesforce-00A1E0?style=flat&logo=salesforce&logoColor=white)
+- ![SFDX](https://img.shields.io/badge/SFDX-00A1E0?style=flat&logo=salesforce&logoColor=white)
 
-📌 **Frontend**
-- ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)
-- ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)
+### **🎨 Frontend**
+- ![LWC](https://img.shields.io/badge/LWC-0070D2?style=flat&logo=salesforce&logoColor=white)
 
-📌 **Database**
-- ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white)
-- ![Salesforce SOQL](https://img.shields.io/badge/SOQL-00A1E0?style=flat&logo=salesforce&logoColor=white)
+### **🗄 Database**
+- ![SOQL](https://img.shields.io/badge/SOQL-00A1E0?style=flat&logo=salesforce&logoColor=white)
 
-📌 **DevOps & Tools**
-- ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
-- ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+### **☁️ 서버**
+- ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=netlify&logoColor=white)
 
----
-
-## 8️⃣ 기술적 이슈 및 발전 방향
-
-### 🔥 **기술적 이슈**
-- [x] 성능 최적화 문제 (Lazy Loading 적용)
-- [x] 인증 방식 개선 (OAuth 2.0)
-- [x] 배포 자동화 문제 해결
-
-### 🚀 **앞으로의 발전 방향**
-- 🌟 AI 기반 추천 시스템 추가
-- 🌟 Salesforce API 연동 기능 추가
-- 🌟 UX/UI 개선
+### **🛠 협업 툴**
+- ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+- ![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat&logo=jira&logoColor=white)
+- ![Miro](https://img.shields.io/badge/Miro-050038?style=flat&logo=miro&logoColor=yellow)
+- ![Notion](https://img.shields.io/badge/Notion-000000?style=flat&logo=notion&logoColor=white)
 
 ---
 
-## 9️⃣ 레퍼런스
-
-- 📌 **Salesforce 개발 문서**: [https://developer.salesforce.com](https://developer.salesforce.com)
-- 📌 **React 공식 문서**: [https://react.dev](https://react.dev)
-- 📌 **PostgreSQL 문서**: [https://www.postgresql.org/docs/](https://www.postgresql.org/docs/)
-- 📌 **GitHub Actions**: [https://github.com/features/actions](https://github.com/features/actions)
-
----
-
-## 📞 **문의**
-📧 이메일: [contact@example.com](wjdgns9799@gmail.com)  
-🐙 GitHub: [@your-github](https://github.com/your-github)
+## 📌 **9️⃣ 문의**
+📧 이메일: [wjdgns9799@gmail.com](mailto:wjdgns9799@gmail.com)  
+🐙 GitHub: [LEEJUNGHOOON](https://github.com/LEEJUNGHOOON)  
 
 ---
 
