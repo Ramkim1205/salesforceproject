@@ -341,6 +341,7 @@ https://github.com/user-attachments/assets/b63ec42b-648d-459a-98e9-bb90f3da7e1c
 ✅ **데이터 기반으로 최적의 의사결정 지원**  
 
 ---
+태블로 퍼블릭에서 보기 : https://public.tableau.com/app/profile/junghoon.lee3688/viz/Team5Tableau/2
 
 > 🚀 **이 대시보드는 Tableau의 강력한 시각화 기능을 활용하여, 설치 데이터의 흐름을 명확하게 파악하고,  
 > 비즈니스 전략을 최적화할 수 있도록 설계되었습니다.**
