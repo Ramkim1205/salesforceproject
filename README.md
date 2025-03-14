@@ -34,7 +34,8 @@
 📌 **설명:** 프로젝트가 어떻게 진행되었는지 설명합니다.
 
 🖼 **프로세스 다이어그램:**
-![Process Flow](https://via.placeholder.com/800x400?text=Process+Diagram)
+<img width="788" alt="image" src="https://github.com/user-attachments/assets/026953cd-e93e-408c-a83b-a503ee682630" />
+
 
 ---
 
