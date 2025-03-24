@@ -25,17 +25,19 @@
 | ![이경택](https://via.placeholder.com/100) | 이경택 | Admin | [GitHub](https://github.com/) |
 | ![김은진](https://via.placeholder.com/100) | 김은진 | Admin | [GitHub](https://github.com/) |
 | ![이정훈](https://via.placeholder.com/100) | 이정훈 | Developer (PL) | [GitHub](https://github.com/) |
-| ![김우람](https://via.placeholder.com/100) | 김우람 | Developer | [GitHub](https://github.com/) |
+| ![김우람](https://via.placeholder.com/100) | 김우람 | Developer | [GitHub](https://github.com/Ramkim1205) |
 
 ---
 
 ## 3️⃣ 프로젝트 프로세스
 
-📌 **설명:** 프로젝트가 어떻게 진행되었는지 설명합니다.
 
 🖼 **프로세스 다이어그램:**
-<br>
 <img width="788" alt="프로세스 다이어그램" src="https://github.com/user-attachments/assets/c45e2ab1-f674-4add-ae92-de9802f72dd0" />
+
+---
+
+<img width="788" alt="image" src="https://github.com/user-attachments/assets/026953cd-e93e-408c-a83b-a503ee682630" />
 
 
 ---
