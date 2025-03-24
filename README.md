@@ -475,6 +475,7 @@ https://github.com/user-attachments/assets/2a74c090-2a40-4bf1-a6d4-029f88e340e4
 - ![Apex](https://img.shields.io/badge/Apex-0055CC?style=flat&logo=salesforce&logoColor=white)
 - ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
 - ![SFDX](https://img.shields.io/badge/SFDX-00A1E0?style=flat&logo=salesforce&logoColor=white)
+- ![AWS Lambda](https://img.shields.io/badge/AWS%20Lambda-F90?logo=aws-lambda&logoColor=white)
 
 ### **🎨 Frontend**
 - ![LWC](https://img.shields.io/badge/LWC-0070D2?style=flat&logo=salesforce&logoColor=white)
