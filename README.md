@@ -33,6 +33,7 @@
 
 
 🖼 **프로세스 다이어그램:**
+<br>
 <img width="788" alt="프로세스 다이어그램" src="https://github.com/user-attachments/assets/c45e2ab1-f674-4add-ae92-de9802f72dd0" />
 
 ---
