@@ -37,10 +37,6 @@
 
 ---
 
-<img width="788" alt="image" src="https://github.com/user-attachments/assets/026953cd-e93e-408c-a83b-a503ee682630" />
-
-
----
 
 ## 4️⃣ ERD (Entity-Relationship Diagram)
 
